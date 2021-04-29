@@ -12,5 +12,5 @@ before_install:
 script:
   - mvn clean package -Dmaven.test.skip=true
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-#  - docker image build ./ -t xdqingyuan/pigeon-server:latest
-#  - docker image push xdqingyuan/pigeon-server:latest
+  - docker image build ./ -t xdqingyuan/redtour-server:latest
+  - docker image push xdqingyuan/redtour-server:latest
