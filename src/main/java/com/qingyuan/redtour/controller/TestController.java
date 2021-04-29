@@ -18,9 +18,4 @@ public class TestController {
     public String ping() {
         return "pong";
     }
-
-    @GetMapping("/conn")
-    public String conn() {
-        return "connected!";
-    }
 }
