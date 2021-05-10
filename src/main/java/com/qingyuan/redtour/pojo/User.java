@@ -39,4 +39,15 @@ public class User {
      * @apiNote 暂未开通
      */
     private Integer identity;
+
+    public User(Integer userId) {
+        this.userId = userId;
+    }
+
+    public User(String openid) {
+        this.openid = openid;
+    }
+
+    public User() {
+    }
 }

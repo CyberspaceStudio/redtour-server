@@ -1,5 +1,7 @@
 package com.qingyuan.redtour.utils;
 
+import com.qingyuan.redtour.pojo.BO.TokenBO;
+import com.qingyuan.redtour.pojo.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,6 +12,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ResponseResult<T> {
+
 
     /**
      * 返回码
@@ -45,4 +48,6 @@ public class ResponseResult<T> {
     private static <T> ResponseResult<T> response(int code, String msg, T data) {
         return new ResponseResult<>(code, msg, data);
     }
+
+    public static <T> ResponseResult<T> ok(int code, String msg, T data) { return response(code, msg, data); }
 }
