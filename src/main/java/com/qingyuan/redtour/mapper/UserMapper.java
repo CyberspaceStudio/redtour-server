@@ -15,7 +15,7 @@ public interface UserMapper {
     int insertUser(User user);
 
     /**
-     * 根据openid查询用户
+     * 根据 openid 查询用户
      * @param openid
      * @return
      */

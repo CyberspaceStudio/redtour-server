@@ -35,5 +35,4 @@ public class WeChatUtil {
         WxResponseInfo wxResponseInfo = JSON.parseObject(responseEntity.getBody(), WxResponseInfo.class);
         return wxResponseInfo;
     }
-
 }

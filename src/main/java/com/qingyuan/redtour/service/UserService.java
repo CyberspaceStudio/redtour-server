@@ -10,8 +10,9 @@ import com.qingyuan.redtour.utils.ResponseResult;
  * @Date: 2021/4/29 22:03
  */
 public interface UserService {
+
     /**
-     * 微信验证登录
+     * 微信小程序登录
      * @param code
      * @return
      */

@@ -9,12 +9,12 @@ import lombok.Data;
 @Data
 public class User {
     /**
-     * 用户ID
+     * 用户 ID
      */
     private Integer userId;
 
     /**
-     * 微信小程序用户ID
+     * 微信小程序用户 ID
      */
     private String openid;
 
@@ -40,14 +40,7 @@ public class User {
      */
     private Integer identity;
 
-    public User(Integer userId) {
-        this.userId = userId;
-    }
-
     public User(String openid) {
         this.openid = openid;
-    }
-
-    public User() {
     }
 }

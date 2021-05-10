@@ -1,6 +1,5 @@
 package com.qingyuan.redtour.controller;
 
-import com.qingyuan.redtour.annotation.PassToken;
 import com.qingyuan.redtour.pojo.BO.TokenBO;
 import com.qingyuan.redtour.pojo.User;
 import com.qingyuan.redtour.service.UserService;
@@ -19,16 +18,17 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Resource
     private UserService userService;
 
     /**
-     * 微信验证登录小程序
-     * 跳过token验证
+     * 微信小程序登录
      * @param code
      * @return
      */
-    @PassToken
     @PostMapping("/login/wx")
-    public ResponseResult<TokenBO<User>> userWxLogin(String code){return userService.userWxLogin(code);}
+    public ResponseResult<TokenBO<User>> userWxLogin(String code) {
+        return userService.userWxLogin(code);
+    }
 }
