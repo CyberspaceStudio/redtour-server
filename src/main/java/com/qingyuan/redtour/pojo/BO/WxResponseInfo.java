@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class WxResponseInfo {
     /**
-     * 用户id
+     * 用户 id
      */
     private Integer userId;
 

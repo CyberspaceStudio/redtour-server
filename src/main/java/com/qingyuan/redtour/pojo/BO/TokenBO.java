@@ -11,7 +11,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class TokenBO<T> {
     /**
-     * Token封装的对象
+     * Token 封装的对象
      */
     private T obj;
 
