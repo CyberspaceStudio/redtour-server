@@ -14,7 +14,7 @@ public class TokenUtil {
 
     private static final String SIGNATURE = "Q!w2XS%^63p*";
 
-    private static final String PAYLOAD_NAME = "user_id";
+    private static final String PAYLOAD_NAME = "userId";
 
     /**
      * 通过用户 ID 生成 token
