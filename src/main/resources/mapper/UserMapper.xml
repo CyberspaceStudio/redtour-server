@@ -6,12 +6,12 @@
 <mapper namespace="com.qingyuan.redtour.mapper.UserMapper">
 
     <insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="userId">
-        insert into redtour.user (user_id, openid, username, avatar, credits, identity)
+        insert into redtour.user (user_id, openid, username, avatar_url, credits, identity)
         values (#{userId,jdbcType=INTEGER},#{openid,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{avatarUrl,jdbcType=VARCHAR},#{credits,jdbcType=INTEGER},#{identity,jdbcType=INTEGER})
     </insert>
 
     <select id="getUserByOpenid" resultType="User">
-        select user_id,openid,username,avatar,credits,identity
+        select user_id,openid,username,avatar_url,credits,identity
         from redtour.user
         where openid = (#{openid,jdbcType=VARCHAR})
     </select>
