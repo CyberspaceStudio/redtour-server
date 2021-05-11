@@ -2,7 +2,6 @@ package com.qingyuan.redtour.utils.component;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 
@@ -13,7 +12,7 @@ import java.util.Calendar;
  */
 public class TokenUtil {
 
-    private static final String signature = "Q!w2XS%^63p*";
+    private static final String SIGNATURE = "Q!w2XS%^63p*";
 
     private static final String PAYLOAD_NAME = "user_id";
 
@@ -33,7 +32,7 @@ public class TokenUtil {
             token = JWT.create()
                     .withClaim(PAYLOAD_NAME, userId)
                     .withExpiresAt(instance.getTime())  // 指定 token 过期时间
-                    .sign(Algorithm.HMAC256(signature));
+                    .sign(Algorithm.HMAC256(SIGNATURE));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +46,7 @@ public class TokenUtil {
      * @return 用户信息 (userId)
      */
     public static String verifyToken(String token) {
-        return JWT.require(Algorithm.HMAC256(signature))
+        return JWT.require(Algorithm.HMAC256(SIGNATURE))
                 .build()
                 .verify(token)
                 .getClaim(PAYLOAD_NAME)
