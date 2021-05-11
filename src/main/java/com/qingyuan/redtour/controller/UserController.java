@@ -1,14 +1,18 @@
 package com.qingyuan.redtour.controller;
 
 import com.qingyuan.redtour.pojo.BO.TokenBO;
+import com.qingyuan.redtour.pojo.Practice;
+import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.pojo.User;
 import com.qingyuan.redtour.service.UserService;
 import com.qingyuan.redtour.utils.ResponseResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 用户相关接口
@@ -30,5 +34,38 @@ public class UserController {
     @PostMapping("/login/wx")
     public ResponseResult<TokenBO<User>> userWxLogin(String code) {
         return userService.userWxLogin(code);
+    }
+
+    /**
+     * 获取用户所有计划
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    @GetMapping("/plan")
+    public ResponseResult<List<Route>> getUserPlan(Integer userId, Integer routeId) {
+        return null;
+    }
+
+    /**
+     * 获取用户所有收藏路线
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    @GetMapping("/star")
+    public ResponseResult<List<Route>> getUserStar(Integer userId, Integer routeId) {
+        return null;
+    }
+
+    /**
+     * 获取用户实践记录
+     * @param userId
+     * @param practiceId
+     * @return
+     */
+    @GetMapping("/practice")
+    public ResponseResult<Practice> getUserPractice(Integer userId, Integer practiceId) {
+        return null;
     }
 }
