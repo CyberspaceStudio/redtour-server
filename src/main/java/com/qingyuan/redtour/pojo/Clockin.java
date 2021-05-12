@@ -11,7 +11,7 @@ import java.util.Date;
  * @Date: 2021/5/11 9:21
  */
 @Data
-public class DailyClockin {
+public class Clockin {
     /**
      * 每日打卡 ID
      */

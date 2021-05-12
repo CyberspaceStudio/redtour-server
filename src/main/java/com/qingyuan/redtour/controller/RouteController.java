@@ -1,5 +1,6 @@
 package com.qingyuan.redtour.controller;
 
+import com.qingyuan.redtour.pojo.BO.RouteBO;
 import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.utils.ResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ public class RouteController {
 
     /**
      * 根据分类查询路线
+     * 结果按热度降序排序
      * @param category 1 代表红色中国；2 代表小康中国；3 代表复兴中国；4 代表游览本地
      * @return
      */
@@ -34,7 +36,7 @@ public class RouteController {
      * @return
      */
     @GetMapping("/id")
-    public ResponseResult<Route> getRouteById(Integer routeId) {
+    public ResponseResult<RouteBO> getRouteById(Integer routeId) {
         return null;
     }
 
@@ -46,6 +48,28 @@ public class RouteController {
      */
     @PostMapping("/plan/add")
     public ResponseResult<Void> addToUserPlan(Integer userId, Integer routeId) {
+        return null;
+    }
+
+    /**
+     * 将该路线加入到用户收藏
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    @PostMapping("/star/add")
+    public ResponseResult<Void> addToUserStar(Integer userId, Integer routeId) {
+        return null;
+    }
+
+    /**
+     * 添加路线
+     * 仅供内部人员使用
+     * @param routeBO
+     * @return
+     */
+    @PostMapping("/add")
+    public ResponseResult<Void> addRoute(RouteBO routeBO) {
         return null;
     }
 }
