@@ -12,7 +12,6 @@ spring:
     password: 123456
     url: jdbc:mysql://118.31.16.35:3306/redtour?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
   redis:
     host: 118.31.16.35
     password: Qingyuan@666
