@@ -5,7 +5,7 @@
 
 <mapper namespace="com.qingyuan.redtour.mapper.UserMapper">
 
-    <insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
         insert into redtour.user (user_id, openid, username, avatar_url, credits, identity)
         values (#{userId,jdbcType=INTEGER},#{openid,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{avatarUrl,jdbcType=VARCHAR},#{credits,jdbcType=INTEGER},#{identity,jdbcType=INTEGER})
     </insert>
