@@ -18,11 +18,18 @@
     </properties>
     <dependencies>
         <!--smart-doc-->
-        <dependency>
-            <groupId>com.github.shalousun</groupId>
-            <artifactId>smart-doc</artifactId>
-            <version>1.9.4</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--    <groupId>com.github.shalousun</groupId>-->
+        <!--    <artifactId>smart-doc</artifactId>-->
+        <!--    <version>1.9.4</version>-->
+        <!--    <scope>test</scope>-->
+        <!--    <exclusions>-->
+        <!--        <exclusion>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--            <artifactId>junit</artifactId>-->
+        <!--        </exclusion>-->
+        <!--    </exclusions>-->
+        <!--</dependency>-->
         <!--jpa-->
         <dependency>
             <groupId>javax.persistence</groupId>
@@ -70,6 +77,14 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.26</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
