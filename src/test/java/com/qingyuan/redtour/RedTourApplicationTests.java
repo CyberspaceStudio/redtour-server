@@ -9,5 +9,4 @@ class RedTourApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

@@ -17,6 +17,12 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+        <!--smart-doc-->
+        <dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>smart-doc</artifactId>
+            <version>1.9.4</version>
+        </dependency>
         <!--jpa-->
         <dependency>
             <groupId>javax.persistence</groupId>
