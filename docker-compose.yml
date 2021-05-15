@@ -5,18 +5,18 @@ services:
   image: xdqingyuan/redtour-server:latest
   restart: always
   ports:
-    - 8080:8080
+   - 8080:8080
   volumes:
   # 将 docker-compose.yml 的文件夹映射到 docker 容器的 a-redtour 文件夹
-    - ./:/a-redtour
+   - ./:/a-redtour
   container_name: redtour
   ## 配置 watchower 自动更新
-   watchtower:
-    image: containrrr/watchtower
-    volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-    # course指定容器名称
-    # --interval 30 30秒检查一次更新
-    #  --cleanup 清除之前的镜像
-    command: redtour  --cleanup  --interval 30
-    container_name: watchower
+ watchtower:
+  image: containrrr/watchtower
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock
+  # course指定容器名称
+  # --interval 30 30秒检查一次更新
+  #  --cleanup 清除之前的镜像
+  command: redtour  --cleanup  --interval 30
+  container_name: watchower

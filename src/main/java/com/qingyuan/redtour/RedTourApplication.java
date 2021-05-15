@@ -11,5 +11,4 @@ public class RedTourApplication {
     public static void main(String[] args) {
         SpringApplication.run(RedTourApplication.class, args);
     }
-
 }
