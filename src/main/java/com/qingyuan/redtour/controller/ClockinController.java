@@ -41,11 +41,11 @@ public class ClockinController {
     /**
      * 添加新的一天打卡
      * @param practiceId
-     * @param clockin
+     * @param clockinBO
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult<Void> addClockin(Integer practiceId, Clockin clockin) {
+    public ResponseResult<Void> addClockin(Integer practiceId, ClockinBO clockinBO) {
         return null;
     }
 }

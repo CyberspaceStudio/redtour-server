@@ -39,33 +39,30 @@ public class UserController {
     /**
      * 获取用户所有计划
      * @param userId
-     * @param routeId
      * @return
      */
     @GetMapping("/plan")
-    public ResponseResult<List<Route>> getUserPlan(Integer userId, Integer routeId) {
+    public ResponseResult<List<Route>> getUserPlan(Integer userId) {
         return null;
     }
 
     /**
      * 获取用户所有收藏路线
      * @param userId
-     * @param routeId
      * @return
      */
     @GetMapping("/star")
-    public ResponseResult<List<Route>> getUserStar(Integer userId, Integer routeId) {
+    public ResponseResult<List<Route>> getUserStar(Integer userId) {
         return null;
     }
 
     /**
      * 获取用户实践记录
      * @param userId
-     * @param practiceId
      * @return
      */
     @GetMapping("/practice")
-    public ResponseResult<Practice> getUserPractice(Integer userId, Integer practiceId) {
+    public ResponseResult<Practice> getUserPractice(Integer userId) {
         return null;
     }
 }

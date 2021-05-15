@@ -25,14 +25,4 @@ public class PracticeController {
     public ResponseResult<Void> addUserPractice(Practice practice) {
         return null;
     }
-
-    /**
-     * 通过用户 ID 获取实践信息
-     * @param userId
-     * @return
-     */
-    @GetMapping("/user")
-    public ResponseResult<Practice> getPracticeByUserId(Integer userId) {
-        return null;
-    }
 }
