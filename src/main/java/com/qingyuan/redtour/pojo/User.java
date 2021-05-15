@@ -3,6 +3,7 @@ package com.qingyuan.redtour.pojo;
 import lombok.Data;
 
 /**
+ * 用户实体类
  * @Author: qyl
  * @Date: 2021/4/29 22:03
  */
