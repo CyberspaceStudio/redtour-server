@@ -3,6 +3,7 @@ package com.qingyuan.redtour.pojo;
 import lombok.Data;
 
 /**
+ * 用户实体类
  * @Author: qyl
  * @Date: 2021/4/29 22:03
  */
@@ -22,11 +23,6 @@ public class User {
      * 用户名
      */
     private String username;
-
-    /**
-     * 用户头像地址
-     */
-    private String avatarUrl;
 
     /**
      * 用户积分
