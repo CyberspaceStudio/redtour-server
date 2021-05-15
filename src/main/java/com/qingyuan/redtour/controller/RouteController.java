@@ -2,12 +2,14 @@ package com.qingyuan.redtour.controller;
 
 import com.qingyuan.redtour.pojo.BO.RouteBO;
 import com.qingyuan.redtour.pojo.Route;
+import com.qingyuan.redtour.service.RouteService;
 import com.qingyuan.redtour.utils.ResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,6 +21,9 @@ import java.util.List;
 @RequestMapping("/route")
 public class RouteController {
 
+    @Resource
+    private RouteService routeService;
+
     /**
      * 根据分类查询路线
      * 结果按热度降序排序
@@ -27,7 +32,7 @@ public class RouteController {
      */
     @GetMapping("/category")
     public ResponseResult<List<Route>> getRouteByCategory(Integer category) {
-        return null;
+        return routeService.getRouteByCategory(category);
     }
 
     /**

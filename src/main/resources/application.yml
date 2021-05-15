@@ -9,8 +9,8 @@ spring:
     name: RedTour
   datasource:
     username: root
-    password: Qingyuan@666
-    url: jdbc:mysql://118.31.16.35:3306/redtour?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    password: lmx15521144359
+    url: jdbc:mysql://121.40.193.220:3306/redtour?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     host: 118.31.16.35

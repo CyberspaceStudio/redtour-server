@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qingyuan.redtour.mapper.RouteMapper">
+
+        <select id="getRouteByCategory" resultType="Route">
+            select scenic_picture_url,route_name,location,suggested_day,travel_mode
+            from redtour.route
+            where category = (#{category,jdbcType=INTEGER})
+        </select>
+
+</mapper>
