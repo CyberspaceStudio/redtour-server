@@ -24,11 +24,6 @@ public class User {
     private String username;
 
     /**
-     * 用户头像地址
-     */
-    private String avatarUrl;
-
-    /**
      * 用户积分
      * @apiNote 暂未开通
      */
