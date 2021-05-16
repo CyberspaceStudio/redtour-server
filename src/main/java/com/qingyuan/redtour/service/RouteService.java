@@ -34,4 +34,19 @@ public interface RouteService {
      * @return
      */
     ResponseResult<Void> addRouteToUserPlan(Integer userId, Integer routeId);
+
+    /**
+     * 将路线加入用户喜欢
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    ResponseResult<Void> addRouteToUserStar(Integer userId, Integer routeId);
+
+    /**
+     * 添加路线
+     * @param routeBO
+     * @return
+     */
+    ResponseResult<Void> addRoute(RouteBO routeBO);
 }

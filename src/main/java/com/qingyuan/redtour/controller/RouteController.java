@@ -4,10 +4,7 @@ import com.qingyuan.redtour.pojo.BO.RouteBO;
 import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.service.RouteService;
 import com.qingyuan.redtour.utils.ResponseResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -64,7 +61,7 @@ public class RouteController {
      */
     @PostMapping("/star/add")
     public ResponseResult<Void> addToUserStar(Integer userId, Integer routeId) {
-        return null;
+        return routeService.addRouteToUserStar(userId,routeId);
     }
 
     /**
@@ -74,7 +71,7 @@ public class RouteController {
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult<Void> addRoute(RouteBO routeBO) {
-        return null;
+    public ResponseResult<Void> addRoute(@RequestBody RouteBO routeBO) {
+        return routeService.addRoute(routeBO);
     }
 }

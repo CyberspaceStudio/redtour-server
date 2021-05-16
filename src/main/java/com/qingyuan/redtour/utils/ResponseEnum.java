@@ -20,7 +20,8 @@ public enum ResponseEnum {
     ROUTE_NO_EXIST(3002,"路线不存在"),
 
     // 计划错误 4001-4999
-    PLAN_HAS_EXIT(4001,"路线已在计划中")
+    PLAN_HAS_EXIT(4001,"路线已在计划中"),
+    STAR_HAS_EXIT(4001,"路线已在收藏中"),
     ;
     /**
      * 状态码

@@ -41,10 +41,50 @@ public interface RouteMapper {
      */
     int findRouteById(Integer routeId);
 
+    /**
+     * 判断用户是否存在
+     * @param userId
+     * @return
+     */
     String findUserById(Integer userId);
 
+    /**
+     * 将路线加入用户计划
+     * @param userId
+     * @param routeId
+     * @return
+     */
     int addRouteToUserPlan(Integer userId,Integer routeId);
 
+    /**
+     * 将路线加入用户喜欢
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    int addRouteToUserStar(Integer userId,Integer routeId);
+
+    /**
+     * 判断用户计划是否存在
+     * @param userId
+     * @param routeId
+     * @return
+     */
     UserPlan judgeUserPlan(Integer userId, Integer routeId);
+
+    /**
+     * 判断用户收藏是否存在
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    UserPlan judgeUserStar(Integer userId, Integer routeId);
+
+    /**
+     * 将route信息存入数据库
+     * @param route
+     * @return
+     */
+    int addRouteToBo(Route route);
 
 }

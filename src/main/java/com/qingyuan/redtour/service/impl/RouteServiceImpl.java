@@ -77,4 +77,40 @@ public class RouteServiceImpl implements RouteService {
             return ResponseResult.fail(ResponseEnum.USER_NO_EXIST.getCode(), ResponseEnum.USER_NO_EXIST.getMsg());
         }
     }
+
+    @Override
+    public ResponseResult<Void> addRouteToUserStar(Integer userId, Integer routeId) {
+        // 用户可能因为各种原因而掉线，从而导致Id不存在
+        String userExist = routeMapper.findUserById(userId);
+        UserPlan userStar = routeMapper.judgeUserStar(userId, routeId);
+        if (userExist != null){
+            if (userStar == null){
+                int success = routeMapper.addRouteToUserStar(userId, routeId);
+                if (success > 0) {
+                    return ResponseResult.ok();
+                } else {
+                    return ResponseResult.fail();
+                }
+            }else {
+                if (userStar.getRouteId() == routeId && userStar.getUserId() == userId) {
+                    return ResponseResult.fail(ResponseEnum.STAR_HAS_EXIT.getCode(), ResponseEnum.STAR_HAS_EXIT.getMsg());
+                } else {
+                    int success = routeMapper.addRouteToUserStar(userId, routeId);
+                    if (success > 0) {
+                        return ResponseResult.ok();
+                    } else {
+                        return ResponseResult.fail();
+                    }
+                }
+            }
+        } else{
+            return ResponseResult.fail(ResponseEnum.USER_NO_EXIST.getCode(), ResponseEnum.USER_NO_EXIST.getMsg());
+        }
+    }
+
+    @Override
+    public ResponseResult<Void> addRoute(RouteBO routeBO) {
+        int routeToBo = routeMapper.addRouteToBo(routeBO);
+        return ResponseResult.ok();
+    }
 }
