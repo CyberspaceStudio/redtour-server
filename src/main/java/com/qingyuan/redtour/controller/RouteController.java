@@ -42,7 +42,7 @@ public class RouteController {
      */
     @GetMapping("/id")
     public ResponseResult<RouteBO> getRouteById(Integer routeId) {
-        return null;
+        return routeService.getRouteBoByRouteId(routeId);
     }
 
     /**
@@ -53,7 +53,7 @@ public class RouteController {
      */
     @PostMapping("/plan/add")
     public ResponseResult<Void> addToUserPlan(Integer userId, Integer routeId) {
-        return null;
+        return routeService.addRouteToUserPlan(userId,routeId);
     }
 
     /**

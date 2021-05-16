@@ -5,10 +5,42 @@
 
 <mapper namespace="com.qingyuan.redtour.mapper.RouteMapper">
 
-        <select id="getRouteByCategory" resultType="Route">
-            select scenic_picture_url,route_name,location,suggested_day,travel_mode
-            from redtour.route
-            where category = (#{category,jdbcType=INTEGER})
-        </select>
+    <select id="getRouteByCategory" resultType="com.qingyuan.redtour.pojo.Route">
+        select route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode
+        from redtour.route
+        where category = (#{category,jdbcType=INTEGER})
+    </select>
 
+    <select id="getRouteToRouteBo" resultType="com.qingyuan.redtour.pojo.BO.RouteBO">
+        select route_name,suggested_day,travel_mode,intro
+        from redtour.route
+        where route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <select id="getAttractionToRouteBo" resultType="com.qingyuan.redtour.pojo.Attraction">
+        select attraction_name,intro
+        from redtour.attraction
+        where route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <select id="findRouteById" resultType="java.lang.Integer">
+        select route_id
+        from redtour.route
+        where route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+    <select id="findUserById" resultType="java.lang.String">
+        select user_id
+        from redtour.user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <select id="judgeUserPlan" resultType="com.qingyuan.redtour.pojo.UserPlan">
+        select *
+        from redtour.user_plan
+        where user_id = #{userId,jdbcType=INTEGER} and route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <insert id="addRouteToUserPlan">
+        insert into redtour.user_plan
+        values (#{userId,jdbcType=INTEGER},#{routeId,jdbcType=INTEGER})
+    </insert>
 </mapper>
