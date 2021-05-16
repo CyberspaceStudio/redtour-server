@@ -9,12 +9,12 @@ spring:
     name: RedTour
   datasource:
     username: root
-    password: Qingyuan@666
-    url: jdbc:mysql://8.140.10.241:3306/redtour?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://localhost:3306/redtour?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
-    host: 8.140.10.241
-    password: Qingyuan@666
+    host: localhost
+    password: 123456
 
 mybatis:
   configuration:
