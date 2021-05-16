@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qingyuan.redtour.mapper.RouteMapper">
+
+    <select id="getRouteByCategory" resultType="com.qingyuan.redtour.pojo.Route">
+        select route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode
+        from redtour.route
+        where category = (#{category,jdbcType=INTEGER})
+    </select>
+
+    <select id="getRouteToRouteBo" resultType="com.qingyuan.redtour.pojo.BO.RouteBO">
+        select route_name,suggested_day,travel_mode,intro
+        from redtour.route
+        where route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <select id="getAttractionToRouteBo" resultType="com.qingyuan.redtour.pojo.Attraction">
+        select attraction_name,intro
+        from redtour.attraction
+        where route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <select id="findRouteById" resultType="java.lang.Integer">
+        select route_id
+        from redtour.route
+        where route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+    <select id="findUserById" resultType="java.lang.String">
+        select user_id
+        from redtour.user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="judgeUserPlan" resultType="com.qingyuan.redtour.pojo.UserPlan">
+        select *
+        from redtour.user_plan
+        where user_id = #{userId,jdbcType=INTEGER} and route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <select id="judgeUserStar" resultType="com.qingyuan.redtour.pojo.UserPlan">
+        select *
+        from redtour.user_star
+        where user_id = #{userId,jdbcType=INTEGER} and route_id = #{routeId,jdbcType=INTEGER}
+    </select>
+
+    <insert id="addRouteToUserPlan">
+        insert into redtour.user_plan
+        values (#{userId,jdbcType=INTEGER},#{routeId,jdbcType=INTEGER})
+    </insert>
+    <insert id="addRouteToUserStar">
+        insert into redtour.user_star
+        values (#{userId,jdbcType=INTEGER},#{routeId,jdbcType=INTEGER})
+    </insert>
+
+    <insert id="addRouteToBo">
+
+        insert into redtour.route (route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode,intro)
+        values (#{routeId,jdbcType=INTEGER},#{category,jdbcType=INTEGER},#{scenicPictureUrl,jdbcType=VARCHAR},#{routeName,jdbcType=VARCHAR},
+                #{location,jdbcType=VARCHAR},#{suggestedDay,jdbcType=VARCHAR},#{travelMode,jdbcType=VARCHAR},#{intro,jdbcType=VARCHAR})
+    </insert>
+
+
+</mapper>
