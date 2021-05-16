@@ -1,19 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : studio
- Source Server Type    : MySQL
- Source Server Version : 80025
- Source Host           : 8.140.10.241:3306
- Source Schema         : redtour
-
- Target Server Type    : MySQL
- Target Server Version : 80025
- File Encoding         : 65001
-
- Date: 16/05/2021 21:08:34
-*/
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
