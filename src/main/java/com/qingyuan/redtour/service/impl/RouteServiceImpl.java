@@ -1,6 +1,7 @@
 package com.qingyuan.redtour.service.impl;
 
 import com.qingyuan.redtour.mapper.RouteMapper;
+import com.qingyuan.redtour.pojo.Attraction;
 import com.qingyuan.redtour.pojo.BO.RouteBO;
 import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.pojo.UserPlan;
@@ -25,91 +26,88 @@ public class RouteServiceImpl implements RouteService {
 
     @Override
     public ResponseResult<List<Route>> getRouteByCategory(Integer category) {
-        // 判断category，防止系统错误传至莫名页面
-        if (category <= 4) {
-            List<Route> routeByCategory = routeMapper.getRouteByCategory(category);
-            return ResponseResult.ok(routeByCategory);
-        } else {
-            return ResponseResult.fail(ResponseEnum.CATEGORY_NO_EXIST.getCode(), ResponseEnum.CATEGORY_NO_EXIST.getMsg());
-        }
+        List<Route> routeList = routeMapper.getRouteByCategory(category);
+        return ResponseResult.ok(routeList);
     }
 
     @Override
-    public ResponseResult<RouteBO> getRouteBoByRouteId(Integer routeId) {
-        // 判断路线是否存在，防止页面卡顿无刷新这种情况发生
-        int routeExist = routeMapper.findRouteById(routeId);
-        if (routeExist > 0) {
-            RouteBO routeBO = routeMapper.getRouteToRouteBo(routeId);
-            routeBO.setAttractionList(routeMapper.getAttractionToRouteBo(routeId));
-            return ResponseResult.ok(routeBO);
-        } else {
-            return ResponseResult.fail(ResponseEnum.ROUTE_NO_EXIST.getCode(), ResponseEnum.ROUTE_NO_EXIST.getMsg());
-        }
+    public ResponseResult<RouteBO> getRouteById(Integer routeId) {
+        Route route = routeMapper.getRouteById(routeId);
+        List<Attraction> attractionList = routeMapper.getAttractionListByRouteId(routeId);
+
+        // 封装 route 和 attraction
+        RouteBO routeBO = wrapRouteBO(route);
+        routeBO.setAttractionList(attractionList);
+        return ResponseResult.ok(routeBO);
     }
 
     @Override
-    public ResponseResult<Void> addRouteToUserPlan(Integer userId, Integer routeId) {
-        // 用户可能因为各种原因而掉线，从而导致Id不存在
-        String userExist = routeMapper.findUserById(userId);
-        UserPlan userPlan = routeMapper.judgeUserPlan(userId, routeId);
-        if (userExist != null) {
-            if (userPlan == null) {
-                int success = routeMapper.addRouteToUserPlan(userId, routeId);
-                if (success > 0) {
-                    return ResponseResult.ok();
-                } else {
-                    return ResponseResult.fail();
-                }
-            } else {
-                if (userPlan.getRouteId() == routeId && userPlan.getUserId() == userId) {
-                    return ResponseResult.fail(ResponseEnum.PLAN_HAS_EXIT.getCode(), ResponseEnum.PLAN_HAS_EXIT.getMsg());
-                } else {
-                    int success = routeMapper.addRouteToUserPlan(userId, routeId);
-                    if (success > 0) {
-                        return ResponseResult.ok();
-                    } else {
-                        return ResponseResult.fail();
-                    }
-                }
-            }
-        } else {
-            return ResponseResult.fail(ResponseEnum.USER_NO_EXIST.getCode(), ResponseEnum.USER_NO_EXIST.getMsg());
+    public ResponseResult<Void> addToUserPlan(Integer userId, Integer routeId) {
+        if (routeMapper.getUserPlanByRouteId(userId, routeId) != null) {
+            return ResponseResult.fail(ResponseEnum.PLAN_HAS_EXIST.getCode(), ResponseEnum.PLAN_HAS_EXIST.getMsg());
         }
+        int i = routeMapper.insertUserPlan(userId, routeId);
+        if (i > 0) {
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
     }
 
     @Override
-    public ResponseResult<Void> addRouteToUserStar(Integer userId, Integer routeId) {
-        // 用户可能因为各种原因而掉线，从而导致Id不存在
-        String userExist = routeMapper.findUserById(userId);
-        UserPlan userStar = routeMapper.judgeUserStar(userId, routeId);
-        if (userExist != null) {
-            if (userStar == null) {
-                int success = routeMapper.addRouteToUserStar(userId, routeId);
-                if (success > 0) {
-                    return ResponseResult.ok();
-                } else {
-                    return ResponseResult.fail();
-                }
-            } else {
-                if (userStar.getRouteId() == routeId && userStar.getUserId() == userId) {
-                    return ResponseResult.fail(ResponseEnum.STAR_HAS_EXIT.getCode(), ResponseEnum.STAR_HAS_EXIT.getMsg());
-                } else {
-                    int success = routeMapper.addRouteToUserStar(userId, routeId);
-                    if (success > 0) {
-                        return ResponseResult.ok();
-                    } else {
-                        return ResponseResult.fail();
-                    }
-                }
-            }
-        } else {
-            return ResponseResult.fail(ResponseEnum.USER_NO_EXIST.getCode(), ResponseEnum.USER_NO_EXIST.getMsg());
+    public ResponseResult<Void> addToUserStar(Integer userId, Integer routeId) {
+        // 不需要判断用户是否收藏，因为新增了取消收藏 api
+        int i = routeMapper.insertUserStar(userId, routeId);
+        if (i > 0) {
+            return ResponseResult.ok();
         }
+        return ResponseResult.fail();
     }
 
     @Override
     public ResponseResult<Void> addRoute(RouteBO routeBO) {
-        int routeToBo = routeMapper.addRouteToBo(routeBO);
+        Route route = unwrapRoute(routeBO);
+        routeMapper.insertRoute(route);
+
+        List<Attraction> attractionList = routeBO.getAttractionList();
+        for (Attraction attraction : attractionList) {
+            routeMapper.insertAttraction(attraction);
+        }
         return ResponseResult.ok();
+    }
+
+    /**
+     * 将 route 包装为 routeBO
+     */
+    private RouteBO wrapRouteBO(Route route) {
+        RouteBO routeBO = new RouteBO();
+
+        routeBO.setRouteId(route.getRouteId());
+        routeBO.setCategory(route.getCategory());
+        routeBO.setRouteName(route.getRouteName());
+        routeBO.setLocation(route.getLocation());
+        routeBO.setScenicPictureUrl(route.getScenicPictureUrl());
+        routeBO.setIntro(route.getIntro());
+        routeBO.setSuggestedDay(route.getSuggestedDay());
+        routeBO.setTravelMode(route.getTravelMode());
+
+        return routeBO;
+    }
+
+    /**
+     * 将 routeBO 分解为 route
+     */
+    private Route unwrapRoute(RouteBO routeBO) {
+        Route route = new Route();
+
+        route.setRouteId(routeBO.getRouteId());
+        route.setCategory(routeBO.getCategory());
+        route.setRouteName(routeBO.getRouteName());
+        route.setLocation(routeBO.getLocation());
+        route.setScenicPictureUrl(routeBO.getScenicPictureUrl());
+        route.setIntro(routeBO.getIntro());
+        route.setSuggestedDay(routeBO.getSuggestedDay());
+        route.setTravelMode(routeBO.getTravelMode());
+
+        return route;
     }
 }

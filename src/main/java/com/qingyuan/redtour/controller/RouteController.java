@@ -39,7 +39,7 @@ public class RouteController {
      */
     @GetMapping("/id")
     public ResponseResult<RouteBO> getRouteById(Integer routeId) {
-        return routeService.getRouteBoByRouteId(routeId);
+        return routeService.getRouteById(routeId);
     }
 
     /**
@@ -50,7 +50,7 @@ public class RouteController {
      */
     @PostMapping("/plan/add")
     public ResponseResult<Void> addToUserPlan(Integer userId, Integer routeId) {
-        return routeService.addRouteToUserPlan(userId,routeId);
+        return routeService.addToUserPlan(userId,routeId);
     }
 
     /**
@@ -61,7 +61,7 @@ public class RouteController {
      */
     @PostMapping("/star/add")
     public ResponseResult<Void> addToUserStar(Integer userId, Integer routeId) {
-        return routeService.addRouteToUserStar(userId,routeId);
+        return routeService.addToUserStar(userId,routeId);
     }
 
     /**

@@ -21,70 +21,54 @@ public interface RouteMapper {
     List<Route> getRouteByCategory(Integer category);
 
     /**
-     * 将对应routeId的旅游路线放进RouteBo里面
-     * @param routeId
-     * @return
-     */
-    RouteBO getRouteToRouteBo(Integer routeId);
-
-    /**
-     * 将对应routeId的景点信息放进getRouteToRouteBo所获得的RouteBo里面
-     * @param routeId
-     * @return
-     */
-    List<Attraction> getAttractionToRouteBo(Integer routeId);
-
-    /**
-     * 通过routeId判断路线是否存在
-     * @param routeId
-     * @return
-     */
-    int findRouteById(Integer routeId);
-
-    /**
-     * 判断用户是否存在
-     * @param userId
-     * @return
-     */
-    String findUserById(Integer userId);
-
-    /**
      * 将路线加入用户计划
      * @param userId
      * @param routeId
      * @return
      */
-    int addRouteToUserPlan(Integer userId,Integer routeId);
+    int insertUserPlan(Integer userId, Integer routeId);
 
     /**
-     * 将路线加入用户喜欢
+     * 将路线加入用户收藏
      * @param userId
      * @param routeId
      * @return
      */
-    int addRouteToUserStar(Integer userId,Integer routeId);
+    int insertUserStar(Integer userId, Integer routeId);
 
     /**
-     * 判断用户计划是否存在
-     * @param userId
+     * 根据 routeId 获取路线
      * @param routeId
      * @return
      */
-    UserPlan judgeUserPlan(Integer userId, Integer routeId);
+    Route getRouteById(Integer routeId);
 
     /**
-     * 判断用户收藏是否存在
-     * @param userId
+     * 根据 routeId 获取景点列表
      * @param routeId
      * @return
      */
-    UserPlan judgeUserStar(Integer userId, Integer routeId);
+    List<Attraction> getAttractionListByRouteId(Integer routeId);
 
     /**
-     * 将route信息存入数据库
+     * 插入路线
      * @param route
      * @return
      */
-    int addRouteToBo(Route route);
+    int insertRoute(Route route);
 
+    /**
+     * 插入景点
+     * @param attraction
+     * @return
+     */
+    int insertAttraction(Attraction attraction);
+
+    /**
+     * 根据 routeId 获取用户收藏的具体路线
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    Route getUserPlanByRouteId(Integer userId, Integer routeId);
 }
