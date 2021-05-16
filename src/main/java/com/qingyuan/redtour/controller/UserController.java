@@ -65,4 +65,26 @@ public class UserController {
     public ResponseResult<Practice> getUserPractice(Integer userId) {
         return null;
     }
+
+    /**
+     * 该路线从用户收藏中移除
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    @PostMapping("/plan/remove")
+    public ResponseResult<Void> removeFromUserPlan(Integer userId, Integer routeId) {
+        return null;
+    }
+
+    /**
+     * 取消收藏该路线
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    @PostMapping("/star/remove")
+    public ResponseResult<Void> removeFromUserStar(Integer userId, Integer routeId) {
+        return null;
+    }
 }
