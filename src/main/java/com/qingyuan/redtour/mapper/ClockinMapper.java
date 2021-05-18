@@ -20,7 +20,7 @@ public interface ClockinMapper {
     List<Clockin> getClockinByPracticeId(Integer practiceId);
 
     /**
-     * 根据 clockinId 查询每日打卡的clockin详细数据
+     * 根据 clockinId 查询每日打卡的 clockin 详细数据
      * @param clockinId
      * @return
      */

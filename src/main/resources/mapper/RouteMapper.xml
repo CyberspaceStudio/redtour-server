@@ -14,14 +14,15 @@
         values (#{userId,jdbcType=INTEGER},#{routeId,jdbcType=INTEGER})
     </insert>
 
-    <insert id="insertRoute">
+    <insert id="insertRoute" parameterType="com.qingyuan.redtour.pojo.Route" useGeneratedKeys="true" keyProperty="routeId">
         insert into redtour.route (route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode,intro)
         values (#{routeId,jdbcType=INTEGER},#{category,jdbcType=INTEGER},#{scenicPictureUrl,jdbcType=VARCHAR},#{routeName,jdbcType=VARCHAR},
                 #{location,jdbcType=VARCHAR},#{suggestedDay,jdbcType=VARCHAR},#{travelMode,jdbcType=VARCHAR},#{intro,jdbcType=VARCHAR})
     </insert>
 
-    <insert id="insertAttraction">
-
+    <insert id="insertAttraction" parameterType="com.qingyuan.redtour.pojo.Attraction" useGeneratedKeys="true" keyProperty="attractionId">
+        insert into redtour.attraction (attraction_id, route_id, attraction_name, intro)
+        VALUES (#{attractionId,jdbcType=INTEGER},#{routeId,jdbcType=INTEGER},#{attractionName,jdbcType=VARCHAR},#{intro,jdbcType=VARCHAR})
     </insert>
 
     <select id="getRouteByCategory" resultType="com.qingyuan.redtour.pojo.Route">
@@ -31,13 +32,16 @@
     </select>
 
     <select id="getUserPlanByRouteId" resultType="com.qingyuan.redtour.pojo.Route">
-
+        select route_id, category, scenic_picture_url, route_name, location, suggested_day, travel_mode, intro
+        from redtour.user_plan up, redtour.route
+        where up.user_id = #{userId,jdbcType=INTEGER} and up.route_id = #{routeId,jdbcType=INTEGER} and up.route_id = route.route_id
+        limit 1
     </select>
 
     <select id="getRouteById" resultType="com.qingyuan.redtour.pojo.Route">
         select route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode,intro
         from redtour.route
-        where route_id=#{routeId,jdbcType=INTEGER}
+        where route_id=#{routeId,jdbcType=INTEGER} limit 1
     </select>
 
     <select id="getAttractionListByRouteId" resultType="com.qingyuan.redtour.pojo.Attraction">

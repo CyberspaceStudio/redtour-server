@@ -14,7 +14,7 @@
     <select id="getClockinByClockinId" resultType="com.qingyuan.redtour.pojo.Clockin">
         select clockin_id,practice_id,date,practice_name,location,teammate,practice_intro
         from redtour.clockin
-        where clockin_id = #{clockinId,jdbcType=INTEGER}
+        where clockin_id = #{clockinId,jdbcType=INTEGER} limit 1
     </select>
 
     <select id="getClockinPictureByClockinId" resultType="java.lang.String">
