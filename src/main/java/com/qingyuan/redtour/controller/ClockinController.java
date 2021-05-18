@@ -2,12 +2,14 @@ package com.qingyuan.redtour.controller;
 
 import com.qingyuan.redtour.pojo.BO.ClockinBO;
 import com.qingyuan.redtour.pojo.Clockin;
+import com.qingyuan.redtour.service.ClockinService;
 import com.qingyuan.redtour.utils.ResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,6 +21,9 @@ import java.util.List;
 @RequestMapping("/clockin")
 public class ClockinController {
 
+    @Resource
+    private ClockinService clockinService;
+
     /**
      * 根据实践 ID 获取每日打卡列表
      * @param practiceId
@@ -26,7 +31,7 @@ public class ClockinController {
      */
     @GetMapping("/list")
     public ResponseResult<List<Clockin>> getDailyClockinList(Integer practiceId) {
-        return null;
+        return clockinService.getDailyClockinList(practiceId);
     }
 
     /**
@@ -36,7 +41,7 @@ public class ClockinController {
      */
     @GetMapping("/id")
     public ResponseResult<ClockinBO> getClockinById(Integer clockinId) {
-        return null;
+        return clockinService.getClockinById(clockinId);
     }
 
     /**
