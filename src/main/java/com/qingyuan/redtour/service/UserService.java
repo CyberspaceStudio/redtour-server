@@ -1,9 +1,12 @@
 package com.qingyuan.redtour.service;
 
 import com.qingyuan.redtour.pojo.BO.TokenBO;
+import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.pojo.User;
 import com.qingyuan.redtour.utils.ResponseEnum;
 import com.qingyuan.redtour.utils.ResponseResult;
+
+import java.util.List;
 
 /**
  * @Author: qyl
@@ -17,4 +20,11 @@ public interface UserService {
      * @return
      */
     ResponseResult<TokenBO<User>> userWxLogin(String code);
+
+    /**
+     * 获取用户所有计划
+     * @param userId
+     * @return
+     */
+    ResponseResult<List<Route>> getUserPlan(Integer userId);
 }

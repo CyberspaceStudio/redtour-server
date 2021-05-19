@@ -5,15 +5,21 @@
 
 <mapper namespace="com.qingyuan.redtour.mapper.UserMapper">
 
-    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="insertUser" parameterType="com.qingyuan.redtour.pojo.User" useGeneratedKeys="true" keyProperty="userId">
         insert into redtour.user (user_id, openid, username, avatar_url, credits, identity)
         values (#{userId,jdbcType=INTEGER},#{openid,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{avatarUrl,jdbcType=VARCHAR},#{credits,jdbcType=INTEGER},#{identity,jdbcType=INTEGER})
     </insert>
 
-    <select id="getUserByOpenid" resultType="User">
+    <select id="getUserByOpenid" parameterType="string" resultType="com.qingyuan.redtour.pojo.User">
         select user_id,openid,username,avatar_url,credits,identity
         from redtour.user
         where openid = (#{openid,jdbcType=VARCHAR}) limit 1
+    </select>
+
+    <select id="getUserPlanList" parameterType="integer" resultType="com.qingyuan.redtour.pojo.Route">
+        select r.route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode,intro
+        from redtour.route r, redtour.user_plan up
+        where up.user_id = (#{userId,jdbcType=INTEGER}) and r.route_id = up.route_id
     </select>
 
 </mapper>

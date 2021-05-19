@@ -43,7 +43,7 @@ public class UserController {
      */
     @GetMapping("/plan")
     public ResponseResult<List<Route>> getUserPlan(Integer userId) {
-        return null;
+        return userService.getUserPlan(userId);
     }
 
     /**
