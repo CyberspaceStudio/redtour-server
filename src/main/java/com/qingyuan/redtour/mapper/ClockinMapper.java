@@ -1,5 +1,6 @@
 package com.qingyuan.redtour.mapper;
 
+import com.qingyuan.redtour.pojo.BO.ClockinBO;
 import com.qingyuan.redtour.pojo.Clockin;
 import com.qingyuan.redtour.pojo.ClockinPicture;
 
@@ -32,4 +33,19 @@ public interface ClockinMapper {
      * @return
      */
     List<String> getClockinPictureByClockinId(Integer clockinId);
+
+    /**
+     * 插入 clockin 信息
+     * @param clockin
+     * @return
+     */
+    int insertClockin(Clockin clockin);
+
+    /**
+     * 根据 clockinId 插入 picture url
+     * @param clockinId
+     * @param pictureUrl
+     * @return
+     */
+    int insertClockinPicture(Integer clockinId,String pictureUrl);
 }

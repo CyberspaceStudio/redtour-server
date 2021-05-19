@@ -17,6 +17,9 @@ public enum ResponseEnum {
 
     // 路线模块错误 3001-3999
     PLAN_HAS_EXIST(3001,"路线已在计划中"),
+
+    // 打卡模块错误 4001-4999
+    CLOCKIN_ADD_ERROR(4001,"添加打卡失败"),
     ;
     /**
      * 状态码

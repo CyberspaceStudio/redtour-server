@@ -26,4 +26,11 @@ public interface ClockinService {
      * @return
      */
     ResponseResult<ClockinBO> getClockinById(Integer clockinId);
+
+    /**
+     * 进行打卡，增加每日打卡记录
+     * @param clockinBO
+     * @return
+     */
+    ResponseResult<Void> addClockin(ClockinBO clockinBO);
 }

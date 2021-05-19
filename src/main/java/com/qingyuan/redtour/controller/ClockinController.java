@@ -4,10 +4,7 @@ import com.qingyuan.redtour.pojo.BO.ClockinBO;
 import com.qingyuan.redtour.pojo.Clockin;
 import com.qingyuan.redtour.service.ClockinService;
 import com.qingyuan.redtour.utils.ResponseResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -46,12 +43,11 @@ public class ClockinController {
 
     /**
      * 添加新的一天打卡
-     * @param practiceId
      * @param clockinBO
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult<Void> addClockin(Integer practiceId, ClockinBO clockinBO) {
-        return null;
+    public ResponseResult<Void> addClockin(@RequestBody ClockinBO clockinBO) {
+        return clockinService.addClockin(clockinBO);
     }
 }

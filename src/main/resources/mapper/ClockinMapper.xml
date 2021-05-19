@@ -4,6 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.qingyuan.redtour.mapper.ClockinMapper">
+    <insert id="insertClockin" parameterType="com.qingyuan.redtour.pojo.Clockin" useGeneratedKeys="true" keyProperty="clockinId">
+        insert into redtour.clockin (clockin_id,practice_id,date,practice_name,location,teammate,practice_intro)
+        values (#{clockinId,jdbcType=INTEGER},#{practiceId,jdbcType=INTEGER},#{date,jdbcType=DATE},#{practiceName,jdbcType=VARCHAR},
+                #{location,jdbcType=VARCHAR},#{teammate,jdbcType=VARCHAR},#{practiceIntro,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertClockinPicture">
+        insert into redtour.clockin_picture (clockin_id,picture_url)
+        values (#{clockinId,jdbcType=INTEGER},#{pictureUrl,jdbcType=VARCHAR})
+    </insert>
 
     <select id="getClockinByPracticeId" resultType="com.qingyuan.redtour.pojo.Clockin">
         select clockin_id,practice_id,date,practice_name,location,teammate,practice_intro
