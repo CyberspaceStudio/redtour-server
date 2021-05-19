@@ -13,7 +13,7 @@
     <select id="getUserByOpenid" resultType="User">
         select user_id,openid,username,avatar_url,credits,identity
         from redtour.user
-        where openid = (#{openid,jdbcType=VARCHAR})
+        where openid = (#{openid,jdbcType=VARCHAR}) limit 1
     </select>
 
 </mapper>

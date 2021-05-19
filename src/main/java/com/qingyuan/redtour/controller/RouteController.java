@@ -2,12 +2,11 @@ package com.qingyuan.redtour.controller;
 
 import com.qingyuan.redtour.pojo.BO.RouteBO;
 import com.qingyuan.redtour.pojo.Route;
+import com.qingyuan.redtour.service.RouteService;
 import com.qingyuan.redtour.utils.ResponseResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,6 +18,9 @@ import java.util.List;
 @RequestMapping("/route")
 public class RouteController {
 
+    @Resource
+    private RouteService routeService;
+
     /**
      * 根据分类查询路线
      * 结果按热度降序排序
@@ -27,7 +29,7 @@ public class RouteController {
      */
     @GetMapping("/category")
     public ResponseResult<List<Route>> getRouteByCategory(Integer category) {
-        return null;
+        return routeService.getRouteByCategory(category);
     }
 
     /**
@@ -37,7 +39,7 @@ public class RouteController {
      */
     @GetMapping("/id")
     public ResponseResult<RouteBO> getRouteById(Integer routeId) {
-        return null;
+        return routeService.getRouteById(routeId);
     }
 
     /**
@@ -48,7 +50,7 @@ public class RouteController {
      */
     @PostMapping("/plan/add")
     public ResponseResult<Void> addToUserPlan(Integer userId, Integer routeId) {
-        return null;
+        return routeService.addToUserPlan(userId,routeId);
     }
 
     /**
@@ -59,7 +61,7 @@ public class RouteController {
      */
     @PostMapping("/star/add")
     public ResponseResult<Void> addToUserStar(Integer userId, Integer routeId) {
-        return null;
+        return routeService.addToUserStar(userId,routeId);
     }
 
     /**
@@ -69,7 +71,7 @@ public class RouteController {
      * @return
      */
     @PostMapping("/add")
-    public ResponseResult<Void> addRoute(RouteBO routeBO) {
-        return null;
+    public ResponseResult<Void> addRoute(@RequestBody RouteBO routeBO) {
+        return routeService.addRoute(routeBO);
     }
 }

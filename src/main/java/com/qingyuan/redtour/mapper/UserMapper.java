@@ -1,6 +1,7 @@
 package com.qingyuan.redtour.mapper;
 
 import com.qingyuan.redtour.pojo.User;
+import com.qingyuan.redtour.pojo.UserPlan;
 
 /**
  * @Author: qyl
@@ -20,4 +21,12 @@ public interface UserMapper {
      * @return
      */
     User getUserByOpenid(String openid);
+
+    /**
+     * 获取用户计划列表
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    UserPlan getUserPlanList(Integer userId);
 }
