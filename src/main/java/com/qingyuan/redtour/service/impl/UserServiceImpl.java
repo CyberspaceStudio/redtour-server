@@ -68,4 +68,13 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public ResponseResult<List<Route>> getUserStar(Integer userId) {
+        List<Route> userStar = userMapper.getUserStar(userId);
+        if(null != userStar){
+            return ResponseResult.ok(userStar);
+        }
+        return null;
+    }
 }

@@ -27,4 +27,11 @@ public interface UserService {
      * @return
      */
     ResponseResult<List<Route>> getUserPlan(Integer userId);
+
+    /**
+     * 获取用户所有收藏
+     * @param userId
+     * @return
+     */
+    ResponseResult<List<Route>> getUserStar(Integer userId);
 }

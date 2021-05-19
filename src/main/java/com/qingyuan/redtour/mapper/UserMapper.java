@@ -31,4 +31,11 @@ public interface UserMapper {
      * @return
      */
     List<Route> getUserPlanList(Integer userId);
+
+    /**
+     * 获取用户收藏
+     * @param userId
+     * @return
+     */
+    List<Route> getUserStar(Integer userId);
 }
