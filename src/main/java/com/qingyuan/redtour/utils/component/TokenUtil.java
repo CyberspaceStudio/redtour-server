@@ -25,13 +25,15 @@ public class TokenUtil {
         String token = "";
 
         Calendar instance = Calendar.getInstance();
-        instance.add(Calendar.DATE, 7);  // 默认7天过期
+        // 默认7天过期
+        instance.add(Calendar.DATE, 7);
 
         // 生成 token
         try {
             token = JWT.create()
                     .withClaim(PAYLOAD_NAME, userId)
-                    .withExpiresAt(instance.getTime())  // 指定 token 过期时间
+                    // 指定 token 过期时间
+                    .withExpiresAt(instance.getTime())
                     .sign(Algorithm.HMAC256(SIGNATURE));
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,7 +1,11 @@
 package com.qingyuan.redtour.mapper;
 
+import com.qingyuan.redtour.pojo.Practice;
+import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.pojo.User;
 import com.qingyuan.redtour.pojo.UserPlan;
+
+import java.util.List;
 
 /**
  * @Author: qyl
@@ -25,8 +29,21 @@ public interface UserMapper {
     /**
      * 获取用户计划列表
      * @param userId
-     * @param routeId
      * @return
      */
-    UserPlan getUserPlanList(Integer userId);
+    List<Route> getUserPlanList(Integer userId);
+
+    /**
+     * 获取用户收藏
+     * @param userId
+     * @return
+     */
+    List<Route> getUserStar(Integer userId);
+
+    /**
+     * 获取用户实践
+     * @param userId
+     * @return
+     */
+    Practice getUserPractice(Integer userId);
 }
