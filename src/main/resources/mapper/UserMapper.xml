@@ -22,4 +22,16 @@
         where up.user_id = (#{userId,jdbcType=INTEGER}) and r.route_id = up.route_id
     </select>
 
+    <select id="getUserStar" parameterType="integer" resultType="com.qingyuan.redtour.pojo.Route">
+        select  r.route_id,category,scenic_picture_url,route_name,location,suggested_day,travel_mode,intro
+        from redtour.route r ,redtour.user_star us
+        where us.user_id = (#{userId,jdbcType=INTEGER}) and r.route_id = us.route_id
+    </select>
+
+    <select id="getUserPractice" parameterType="integer" resultType="com.qingyuan.redtour.pojo.Practice">
+        select practice_id,user_id,university,student_name,student_id
+        from redtour.practice
+        where user_id = (#{userId,jdbcType=INTEGER})
+    </select>
+
 </mapper>

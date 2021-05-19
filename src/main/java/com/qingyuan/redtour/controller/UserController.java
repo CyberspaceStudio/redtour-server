@@ -53,7 +53,7 @@ public class UserController {
      */
     @GetMapping("/star")
     public ResponseResult<List<Route>> getUserStar(Integer userId) {
-        return null;
+        return userService.getUserStar(userId);
     }
 
     /**
@@ -63,7 +63,7 @@ public class UserController {
      */
     @GetMapping("/practice")
     public ResponseResult<Practice> getUserPractice(Integer userId) {
-        return null;
+        return userService.getUserPractice(userId);
     }
 
     /**
