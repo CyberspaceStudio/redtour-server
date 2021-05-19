@@ -1,13 +1,58 @@
-2021-05-18 15:24:45.966  INFO 11188 --- [main] com.qingyuan.redtour.RedTourApplication  : Starting RedTourApplication on LAPTOP-FK5UTLDU with PID 11188 (D:\java\studio\redtour\target\classes started by 四十五邱星星呐 in D:\java\studio\redtour)
-2021-05-18 15:24:45.966  INFO 11188 --- [main] com.qingyuan.redtour.RedTourApplication  : No active profile set, falling back to default profiles: default
-2021-05-18 15:24:46.528  INFO 11188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2021-05-18 15:24:46.528  INFO 11188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2021-05-18 15:24:46.559  INFO 11188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
-2021-05-18 15:24:46.950  INFO 11188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-05-18 15:24:46.950  INFO 11188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-05-18 15:24:46.950  INFO 11188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2021-05-18 15:24:47.028  INFO 11188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-05-18 15:24:47.028  INFO 11188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1000 ms
-2021-05-18 15:24:47.434  INFO 11188 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-18 15:24:47.809  INFO 11188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-05-18 15:24:47.825  INFO 11188 --- [main] com.qingyuan.redtour.RedTourApplication  : Started RedTourApplication in 2.255 seconds (JVM running for 3.304)
+2021-05-19 15:14:09.886  INFO 16672 --- [main] com.qingyuan.redtour.RedTourApplication  : Starting RedTourApplication on LAPTOP-FK5UTLDU with PID 16672 (D:\java\studio\redtour\target\classes started by 四十五邱星星呐 in D:\java\studio\redtour)
+2021-05-19 15:14:09.900  INFO 16672 --- [main] com.qingyuan.redtour.RedTourApplication  : No active profile set, falling back to default profiles: default
+2021-05-19 15:14:10.514  INFO 16672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-19 15:14:10.516  INFO 16672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-19 15:14:10.545  INFO 16672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.
+2021-05-19 15:14:10.948  INFO 16672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-19 15:14:10.957  INFO 16672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-19 15:14:10.957  INFO 16672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-05-19 15:14:11.034  INFO 16672 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-19 15:14:11.035  INFO 16672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1076 ms
+2021-05-19 15:14:11.457  INFO 16672 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-19 15:14:11.863  INFO 16672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-19 15:14:11.873  INFO 16672 --- [main] com.qingyuan.redtour.RedTourApplication  : Started RedTourApplication in 2.443 seconds (JVM running for 3.553)
+2021-05-19 21:18:27.674  INFO 11828 --- [main] com.qingyuan.redtour.RedTourApplication  : Starting RedTourApplication on LAPTOP-FK5UTLDU with PID 11828 (D:\java\studio\redtour\target\classes started by 四十五邱星星呐 in D:\java\studio\redtour)
+2021-05-19 21:18:27.676  INFO 11828 --- [main] com.qingyuan.redtour.RedTourApplication  : No active profile set, falling back to default profiles: default
+2021-05-19 21:18:28.159  INFO 11828 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-19 21:18:28.161  INFO 11828 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-19 21:18:28.189  INFO 11828 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.
+2021-05-19 21:18:28.594  INFO 11828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-19 21:18:28.603  INFO 11828 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-19 21:18:28.603  INFO 11828 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-05-19 21:18:28.677  INFO 11828 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-19 21:18:28.677  INFO 11828 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 957 ms
+2021-05-19 21:18:29.092  INFO 11828 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:18:29.476  INFO 11828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-19 21:18:29.487  INFO 11828 --- [main] com.qingyuan.redtour.RedTourApplication  : Started RedTourApplication in 2.233 seconds (JVM running for 3.3)
+2021-05-19 21:20:51.681  INFO 13776 --- [main] c.q.redtour.RedTourApplicationTests      : Starting RedTourApplicationTests on LAPTOP-FK5UTLDU with PID 13776 (started by 四十五邱星星呐 in D:\java\studio\redtour)
+2021-05-19 21:20:51.682  INFO 13776 --- [main] c.q.redtour.RedTourApplicationTests      : No active profile set, falling back to default profiles: default
+2021-05-19 21:20:52.291  INFO 13776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-19 21:20:52.294  INFO 13776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-19 21:20:52.327  INFO 13776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2021-05-19 21:20:53.573  INFO 13776 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:20:54.255  INFO 13776 --- [main] c.q.redtour.RedTourApplicationTests      : Started RedTourApplicationTests in 2.903 seconds (JVM running for 4.121)
+2021-05-19 21:20:54.742  INFO 13776 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:34:18.208  INFO 12924 --- [main] c.q.redtour.RedTourApplicationTests      : Starting RedTourApplicationTests on LAPTOP-FK5UTLDU with PID 12924 (started by 四十五邱星星呐 in D:\java\studio\redtour)
+2021-05-19 21:34:18.210  INFO 12924 --- [main] c.q.redtour.RedTourApplicationTests      : No active profile set, falling back to default profiles: default
+2021-05-19 21:34:18.915  INFO 12924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-19 21:34:18.919  INFO 12924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-19 21:34:18.967  INFO 12924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 0 Redis repository interfaces.
+2021-05-19 21:34:20.424  INFO 12924 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:34:21.393  INFO 12924 --- [main] c.q.redtour.RedTourApplicationTests      : Started RedTourApplicationTests in 3.674 seconds (JVM running for 5.005)
+2021-05-19 21:34:21.893  INFO 12924 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:34:46.212  INFO 11616 --- [main] c.q.redtour.RedTourApplicationTests      : Starting RedTourApplicationTests on LAPTOP-FK5UTLDU with PID 11616 (started by 四十五邱星星呐 in D:\java\studio\redtour)
+2021-05-19 21:34:46.213  INFO 11616 --- [main] c.q.redtour.RedTourApplicationTests      : No active profile set, falling back to default profiles: default
+2021-05-19 21:34:46.817  INFO 11616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-19 21:34:46.820  INFO 11616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-19 21:34:46.853  INFO 11616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
+2021-05-19 21:34:48.155  INFO 11616 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:34:48.994  INFO 11616 --- [main] c.q.redtour.RedTourApplicationTests      : Started RedTourApplicationTests in 3.223 seconds (JVM running for 4.401)
+2021-05-19 21:34:49.454  INFO 11616 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:35:30.197  INFO 11720 --- [main] c.q.redtour.RedTourApplicationTests      : Starting RedTourApplicationTests on LAPTOP-FK5UTLDU with PID 11720 (started by 四十五邱星星呐 in D:\java\studio\redtour)
+2021-05-19 21:35:30.198  INFO 11720 --- [main] c.q.redtour.RedTourApplicationTests      : No active profile set, falling back to default profiles: default
+2021-05-19 21:35:30.836  INFO 11720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-19 21:35:30.838  INFO 11720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-19 21:35:30.874  INFO 11720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+2021-05-19 21:35:32.182  INFO 11720 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-19 21:35:33.048  INFO 11720 --- [main] c.q.redtour.RedTourApplicationTests      : Started RedTourApplicationTests in 3.29 seconds (JVM running for 4.44)
+2021-05-19 21:35:35.570  INFO 11720 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
