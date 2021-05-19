@@ -3,6 +3,7 @@ package com.qingyuan.redtour.service.impl;
 import com.qingyuan.redtour.mapper.UserMapper;
 import com.qingyuan.redtour.pojo.BO.TokenBO;
 import com.qingyuan.redtour.pojo.BO.WxResponseInfo;
+import com.qingyuan.redtour.pojo.Practice;
 import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.pojo.User;
 import com.qingyuan.redtour.service.UserService;
@@ -74,6 +75,15 @@ public class UserServiceImpl implements UserService {
         List<Route> userStar = userMapper.getUserStar(userId);
         if(null != userStar){
             return ResponseResult.ok(userStar);
+        }
+        return null;
+    }
+
+    @Override
+    public ResponseResult<Practice> getUserPractice(Integer userId) {
+        Practice userPractice = userMapper.getUserPractice(userId);
+        if(null != userPractice){
+            return ResponseResult.ok(userPractice);
         }
         return null;
     }

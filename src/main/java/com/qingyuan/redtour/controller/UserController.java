@@ -63,7 +63,7 @@ public class UserController {
      */
     @GetMapping("/practice")
     public ResponseResult<Practice> getUserPractice(Integer userId) {
-        return null;
+        return userService.getUserPractice(userId);
     }
 
     /**
