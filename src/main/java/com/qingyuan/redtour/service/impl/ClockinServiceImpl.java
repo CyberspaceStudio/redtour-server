@@ -51,7 +51,10 @@ public class ClockinServiceImpl implements ClockinService {
         if (i > 0) {
             List<String> clockinPictureUrlList = clockinBO.getClockinPictureUrlList();
             for (String pictureUrl : clockinPictureUrlList) {
-                clockinMapper.insertClockinPicture(clockin.getClockinId(),pictureUrl);
+                int j = clockinMapper.insertClockinPicture(clockin.getClockinId(), pictureUrl);
+                if (j <= 0) {
+                    return ResponseResult.fail(ResponseEnum.PICTURE_INSERT_ERROR.getCode(), ResponseEnum.PICTURE_INSERT_ERROR.getMsg());
+                }
             }
             return ResponseResult.ok();
         } else {
