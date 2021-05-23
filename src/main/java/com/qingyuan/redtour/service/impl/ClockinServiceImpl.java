@@ -27,6 +27,9 @@ public class ClockinServiceImpl implements ClockinService {
     @Override
     public ResponseResult<List<Clockin>> getDailyClockinList(Integer practiceId) {
         List<Clockin> clockin = clockinMapper.getClockinByPracticeId(practiceId);
+        if (clockin.size() == 0) {
+            return null;
+        }
         return ResponseResult.ok(clockin);
     }
 

@@ -9,5 +9,10 @@ import com.qingyuan.redtour.utils.ResponseResult;
  * @Version 1.0
  */
 public interface PracticeService {
+    /**
+     * 增加用户实践
+     * @param practice
+     * @return
+     */
     ResponseResult<Void> addUserPractice(Practice practice);
 }

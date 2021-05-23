@@ -8,5 +8,10 @@ import com.qingyuan.redtour.pojo.Practice;
  * @Version 1.0
  */
 public interface PracticeMapper {
+    /**
+     * 增加用户实践
+     * @param practice
+     * @return
+     */
     int addUserPractice(Practice practice);
 }
