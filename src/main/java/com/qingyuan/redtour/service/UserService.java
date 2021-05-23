@@ -42,4 +42,20 @@ public interface UserService {
      * @return
      */
     ResponseResult<Practice> getUserPractice(Integer userId);
+
+    /**
+     * 从用户计划中移除
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    ResponseResult<Void> removeFromUserPlan(Integer userId, Integer routeId);
+
+    /**
+     * 从用户收藏中移除
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    ResponseResult<Void> removeFromUserStar(Integer userId, Integer routeId);
 }

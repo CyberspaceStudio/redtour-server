@@ -74,7 +74,7 @@ public class UserController {
      */
     @PostMapping("/plan/remove")
     public ResponseResult<Void> removeFromUserPlan(Integer userId, Integer routeId) {
-        return null;
+        return userService.removeFromUserPlan(userId,routeId);
     }
 
     /**
@@ -85,6 +85,6 @@ public class UserController {
      */
     @PostMapping("/star/remove")
     public ResponseResult<Void> removeFromUserStar(Integer userId, Integer routeId) {
-        return null;
+        return userService.removeFromUserStar(userId,routeId);
     }
 }

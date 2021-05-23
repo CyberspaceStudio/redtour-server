@@ -10,6 +10,7 @@
         values (#{userId,jdbcType=INTEGER},#{openid,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{avatarUrl,jdbcType=VARCHAR},#{credits,jdbcType=INTEGER},#{identity,jdbcType=INTEGER})
     </insert>
 
+
     <select id="getUserByOpenid" parameterType="string" resultType="com.qingyuan.redtour.pojo.User">
         select user_id,openid,username,avatar_url,credits,identity
         from redtour.user
@@ -34,4 +35,12 @@
         where user_id = (#{userId,jdbcType=INTEGER})
     </select>
 
+    <delete id="removeFromUserPlan">
+        delete from redtour.user_plan
+        where user_id = #{userId,jdbcType=INTEGER} and route_id = #{routeId,jdbcType=INTEGER}
+    </delete>
+    <delete id="removeFromUserStar">
+        delete from redtour.user_star
+        where user_id = #{userId,jdbcType=INTEGER} and route_id = #{routeId,jdbcType=INTEGER}
+    </delete>
 </mapper>

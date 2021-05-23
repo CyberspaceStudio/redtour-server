@@ -87,4 +87,22 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public ResponseResult<Void> removeFromUserPlan(Integer userId, Integer routeId) {
+        int i = userMapper.removeFromUserPlan(userId, routeId);
+        if (i > 0) {
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
+    }
+
+    @Override
+    public ResponseResult<Void> removeFromUserStar(Integer userId, Integer routeId) {
+        int i = userMapper.removeFromUserStar(userId, routeId);
+        if (i > 0) {
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
+    }
 }

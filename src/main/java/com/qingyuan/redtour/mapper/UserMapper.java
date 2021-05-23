@@ -46,4 +46,20 @@ public interface UserMapper {
      * @return
      */
     Practice getUserPractice(Integer userId);
+
+    /**
+     * 从用户计划中移除
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    int removeFromUserPlan(Integer userId, Integer routeId);
+
+    /**
+     * 从用户收藏中移除
+     * @param userId
+     * @param routeId
+     * @return
+     */
+    int removeFromUserStar(Integer userId, Integer routeId);
 }
