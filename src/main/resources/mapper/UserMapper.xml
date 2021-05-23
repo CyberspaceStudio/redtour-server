@@ -32,7 +32,7 @@
     <select id="getUserPractice" parameterType="integer" resultType="com.qingyuan.redtour.pojo.Practice">
         select practice_id,user_id,university,student_name,student_id
         from redtour.practice
-        where user_id = (#{userId,jdbcType=INTEGER})
+        where user_id = (#{userId,jdbcType=INTEGER}) limit 1
     </select>
 
     <delete id="removeFromUserPlan">
