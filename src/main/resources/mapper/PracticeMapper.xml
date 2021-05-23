@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingyuan.redtour.mapper.PracticeMapper">
+
+    <insert id="addUserPractice" parameterType="com.qingyuan.redtour.pojo.Practice" useGeneratedKeys="true" keyProperty="practiceId">
+        insert into redtour.practice (practice_id,user_id,university,student_name,student_id)
+        values (#{practiceId,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},#{university,jdbcType=VARCHAR},#{studentName,jdbcType=VARCHAR},#{studentId,jdbcType=INTEGER})
+    </insert>
+
+</mapper>
