@@ -2,6 +2,7 @@ package com.qingyuan.redtour.utils.component;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 
@@ -10,6 +11,7 @@ import java.util.Calendar;
  * @Description: 根据 userId 生成 token
  * @create 2021-05-08 21:08
  */
+@Component
 public class TokenUtil {
 
     private static final String SIGNATURE = "Q!w2XS%^63p*";

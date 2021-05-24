@@ -14,7 +14,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     host: localhost
-    password: 123456
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: 1
+        min-idle: 0
+
 
 mybatis:
   configuration:

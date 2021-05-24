@@ -8,12 +8,15 @@ import com.power.doc.model.ApiErrorCodeDictionary;
 import com.power.doc.model.ApiReqHeader;
 import com.qingyuan.redtour.utils.ResponseEnum;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+@SpringBootApplication
 class RedTourApplicationTests {
 
     @Test
@@ -24,6 +27,11 @@ class RedTourApplicationTests {
         list.add("name");
         String json = JSON.toJSONString(list);
         System.out.println(json);
+    }
+
+    @Test
+    public static void main(String[] args) {
+        SpringApplication.run(RedTourApplicationTests.class,args);
     }
 
     @Test
