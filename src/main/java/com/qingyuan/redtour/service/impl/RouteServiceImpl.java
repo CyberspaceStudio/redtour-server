@@ -3,11 +3,13 @@ package com.qingyuan.redtour.service.impl;
 import com.qingyuan.redtour.mapper.RouteMapper;
 import com.qingyuan.redtour.pojo.Attraction;
 import com.qingyuan.redtour.pojo.BO.RouteBO;
+import com.qingyuan.redtour.pojo.BO.RouteRankBO;
 import com.qingyuan.redtour.pojo.Route;
-import com.qingyuan.redtour.pojo.UserPlan;
 import com.qingyuan.redtour.service.RouteService;
 import com.qingyuan.redtour.utils.ResponseEnum;
 import com.qingyuan.redtour.utils.ResponseResult;
+import com.qingyuan.redtour.utils.component.RedisRankUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -19,21 +21,27 @@ import java.util.List;
  * @Version 1.0
  */
 @Service
+@Slf4j
 public class RouteServiceImpl implements RouteService {
 
     @Resource
     private RouteMapper routeMapper;
 
+    @Resource
+    private RedisRankUtil redisRankUtil;
+
     @Override
-    public ResponseResult<List<Route>> getRouteByCategory(Integer category) {
-        List<Route> routeList = routeMapper.getRouteByCategory(category);
-        return ResponseResult.ok(routeList);
+    public ResponseResult<List<RouteRankBO>> getRouteByCategory(Integer category) {
+        List<RouteRankBO> heatRouteList = redisRankUtil.getHeatRoute(category);
+        return ResponseResult.ok(heatRouteList);
     }
 
     @Override
     public ResponseResult<RouteBO> getRouteById(Integer routeId) {
         Route route = routeMapper.getRouteById(routeId);
         List<Attraction> attractionList = routeMapper.getAttractionListByRouteId(routeId);
+        // 点击一次，增加一次热度
+        redisRankUtil.addHeatRoute(routeId,route.getCategory());
 
         // 封装 route 和 attraction
         RouteBO routeBO = wrapRouteBO(route);

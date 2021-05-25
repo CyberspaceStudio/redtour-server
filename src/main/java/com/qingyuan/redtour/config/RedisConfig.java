@@ -8,6 +8,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import javax.annotation.Resource;
+
 /**
  * @author hly
  * @Description: redis 配置类
@@ -15,7 +17,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  */
 @Configuration
 public class RedisConfig {
-    @Autowired
+    @Resource
     RedisConnectionFactory redisConnectionFactory;
 
     @Bean

@@ -13,14 +13,8 @@ spring:
     url: jdbc:mysql://localhost:3306/redtour?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
-    host: localhost
+    host: 114.215.197.62
     port: 6379
-    jedis:
-      pool:
-        max-idle: 8
-        max-wait: 1
-        min-idle: 0
-
 
 mybatis:
   configuration:

@@ -1,6 +1,7 @@
 package com.qingyuan.redtour.service;
 
 import com.qingyuan.redtour.pojo.BO.RouteBO;
+import com.qingyuan.redtour.pojo.BO.RouteRankBO;
 import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.utils.ResponseResult;
 
@@ -17,7 +18,7 @@ public interface RouteService {
      * @param category  1 代表红色中国；2 代表小康中国；3 代表复兴中国；4 代表游览本地
      * @return
      */
-    ResponseResult<List<Route>> getRouteByCategory(Integer category);
+    ResponseResult<List<RouteRankBO>> getRouteByCategory(Integer category);
 
     /**
      * 根据 routeId 获得分类中的路线详情

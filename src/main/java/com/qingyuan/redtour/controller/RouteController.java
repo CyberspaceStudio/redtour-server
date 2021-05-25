@@ -1,6 +1,7 @@
 package com.qingyuan.redtour.controller;
 
 import com.qingyuan.redtour.pojo.BO.RouteBO;
+import com.qingyuan.redtour.pojo.BO.RouteRankBO;
 import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.service.RouteService;
 import com.qingyuan.redtour.utils.ResponseResult;
@@ -28,7 +29,7 @@ public class RouteController {
      * @return
      */
     @GetMapping("/category")
-    public ResponseResult<List<Route>> getRouteByCategory(Integer category) {
+    public ResponseResult<List<RouteRankBO>> getRouteByCategory(Integer category) {
         return routeService.getRouteByCategory(category);
     }
 

@@ -18,22 +18,22 @@ import java.util.concurrent.TimeUnit;
 public class RedisUtil {
 
     @Resource
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     /**
-     * 设置缓存失效时间，统一为凌晨零点
+     * 设置缓存失效时间，15日凌晨后过期
      * @param hotWord
      */
     public void addHotWord(String hotWord) {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_YEAR,1);
+        calendar.add(Calendar.DAY_OF_YEAR,15);
         calendar.set(Calendar.HOUR_OF_DAY,0);
         calendar.set(Calendar.SECOND,0);
         calendar.set(Calendar.MINUTE,0);
         calendar.set(Calendar.MILLISECOND,0);
-        //晚上十二点与当前的毫秒差
+        //15日后十二点与当前的毫秒差
         Long timeOut = (calendar.getTimeInMillis() - System.currentTimeMillis()) / 1000;
-        redisTemplate.expire("hotWord",timeOut, TimeUnit.SECONDS);
+        redisTemplate.expire("hotWord",timeOut, TimeUnit.MILLISECONDS);
 
         if(redisTemplate.opsForZSet().range("hotWord",0,-1).toString().contains(hotWord)){
             //缓存已存在，当前分数+1
@@ -50,7 +50,8 @@ public class RedisUtil {
      * @return
      */
     public List<HotWord> getHotWord(){
-        List<HotWord> hotWordList = new ArrayList<>();
+        // 使用 LinkedList 数据结构便于插入，效率更高
+        List<HotWord> hotWordList = new LinkedList<>();
         Set<ZSetOperations.TypedTuple<Object>> typedTupleSet = redisTemplate.opsForZSet().reverseRangeByScoreWithScores("hotWord", 1, 100);
         Iterator<ZSetOperations.TypedTuple<Object>> iterator = typedTupleSet.iterator();
         int flag = 0;
