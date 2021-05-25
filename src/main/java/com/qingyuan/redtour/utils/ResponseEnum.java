@@ -23,7 +23,7 @@ public enum ResponseEnum {
     PICTURE_INSERT_ERROR(4002,"图片添加失败"),
 
     // 实践模块错误 5001-5999
-    PRACTICE_ADD_ARROR(4003,"添加实践失败"),
+    PRACTICE_ADD_ERROR(4003,"添加实践失败"),
     ;
     /**
      * 状态码

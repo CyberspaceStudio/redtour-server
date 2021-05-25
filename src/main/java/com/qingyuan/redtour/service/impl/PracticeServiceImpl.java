@@ -25,6 +25,6 @@ public class PracticeServiceImpl implements PracticeService {
         if (i > 0) {
             return ResponseResult.ok();
         }
-        return ResponseResult.fail(ResponseEnum.PRACTICE_ADD_ARROR.getCode(), ResponseEnum.PRACTICE_ADD_ARROR.getMsg());
+        return ResponseResult.fail(ResponseEnum.PRACTICE_ADD_ERROR.getCode(), ResponseEnum.PRACTICE_ADD_ERROR.getMsg());
     }
 }
