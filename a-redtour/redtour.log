@@ -97,3 +97,21 @@
 2021-05-26 15:25:00.548  INFO 8275 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2021-05-26 15:25:00.900  INFO 8275 --- [main] c.q.redtour.RedTourApplicationTests      : Started RedTourApplicationTests in 2.472 seconds (JVM running for 3.364)
 2021-05-26 15:25:02.677  INFO 8275 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-26 16:18:04.832  INFO 13876 --- [main] com.qingyuan.redtour.RedTourApplication  : Starting RedTourApplication on DESKTOP-3L1QH0G with PID 13876 (D:\java_code\redtour-server\target\classes started by Dell in D:\java_code\redtour-server)
+2021-05-26 16:18:04.846  INFO 13876 --- [main] com.qingyuan.redtour.RedTourApplication  : No active profile set, falling back to default profiles: default
+2021-05-26 16:18:05.737  INFO 13876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-05-26 16:18:05.739  INFO 13876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-05-26 16:18:05.764  INFO 13876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2021-05-26 16:18:06.181  INFO 13876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-26 16:18:06.188  INFO 13876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-26 16:18:06.188  INFO 13876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-05-26 16:18:06.254  INFO 13876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-05-26 16:18:06.254  INFO 13876 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1259 ms
+2021-05-26 16:18:07.004  INFO 13876 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-26 16:18:07.303  INFO 13876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-05-26 16:18:07.311  INFO 13876 --- [main] com.qingyuan.redtour.RedTourApplication  : Started RedTourApplication in 2.847 seconds (JVM running for 3.936)
+2021-05-26 16:18:30.244  INFO 13876 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-26 16:18:30.245  INFO 13876 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-26 16:18:30.257  INFO 13876 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2021-05-26 16:18:30.309  INFO 13876 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-26 16:18:30.499  INFO 13876 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

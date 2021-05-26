@@ -64,7 +64,7 @@ public class RouteRankUtil {
         // 使用 LinkedList 数据结构使得添加操作更高效
         List<RouteRankBO> heatRouteList = new LinkedList<>();
         // 用于标记路线是否被加入到热门路线
-        // 0 未加入，1 已加入
+        // false 未加入，true 已加入
         BitSet bitSet = new BitSet(routeSize);
 
         String key = RedisKey.HEAT_KEY_PREFIX + category;
@@ -80,7 +80,7 @@ public class RouteRankUtil {
                     Integer score = typedTuple.getScore() == null ? 1 : (int) Math.ceil(typedTuple.getScore());
                     routeRankBO.setScore(score);
                     heatRouteList.add(routeRankBO);
-                    bitSet.set(index, true);
+                    bitSet.set(index,true);
                 }
             }
         }
