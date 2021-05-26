@@ -36,7 +36,7 @@ class RedTourApplicationTests {
     @Test
     void buildApiDoc() {
         ApiConfig config = new ApiConfig();
-        config.setServerUrl("http://118.31.16.35:8080");
+        config.setServerUrl("http://redtour.net:8080");
 
         // 设置为严格模式，Smart-doc将降至要求每个Controller暴露的接口写上标准文档注释
         config.setStrict(true);

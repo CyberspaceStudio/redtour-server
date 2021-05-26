@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Description: Route 与 score 包装类，存入 redis
  * @create 2021-05-25 22:01
  */
-public class RouteRankBO extends Route implements Serializable {
+public class RouteRankBO extends Route implements Serializable, Comparable<RouteRankBO> {
 
     /**
      * 热度
@@ -22,5 +22,10 @@ public class RouteRankBO extends Route implements Serializable {
 
     public Integer getScore(){
         return score;
+    }
+
+    @Override
+    public int compareTo(RouteRankBO o) {
+        return this.getScore().compareTo(o.getScore());
     }
 }

@@ -8,7 +8,7 @@ import com.qingyuan.redtour.pojo.Route;
 import com.qingyuan.redtour.service.RouteService;
 import com.qingyuan.redtour.utils.ResponseEnum;
 import com.qingyuan.redtour.utils.ResponseResult;
-import com.qingyuan.redtour.utils.component.RedisRankUtil;
+import com.qingyuan.redtour.utils.component.RouteRankUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +28,12 @@ public class RouteServiceImpl implements RouteService {
     private RouteMapper routeMapper;
 
     @Resource
-    private RedisRankUtil redisRankUtil;
+    private RouteRankUtil routeRankUtil;
 
     @Override
     public ResponseResult<List<RouteRankBO>> getRouteByCategory(Integer category) {
-        List<RouteRankBO> heatRouteList = redisRankUtil.getHeatRoute(category);
+        List<Route> routeList = routeMapper.getRouteByCategory(category);
+        List<RouteRankBO> heatRouteList = routeRankUtil.getHeatRoute(category, routeList);
         return ResponseResult.ok(heatRouteList);
     }
 
@@ -41,7 +42,7 @@ public class RouteServiceImpl implements RouteService {
         Route route = routeMapper.getRouteById(routeId);
         List<Attraction> attractionList = routeMapper.getAttractionListByRouteId(routeId);
         // 点击一次，增加一次热度
-        redisRankUtil.addHeatRoute(routeId,route.getCategory());
+        routeRankUtil.addHeatRoute(routeId, route.getCategory());
 
         // 封装 route 和 attraction
         RouteBO routeBO = wrapRouteBO(route);

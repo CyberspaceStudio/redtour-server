@@ -1,60 +1,60 @@
 let api = [];
 api.push({
-    alias: 'ClockinController',
-    order: '1',
-    link: '每日打卡相关接口',
-    desc: '每日打卡相关接口',
-    list: []
-})
-api[0].list.push({
-    order: '1',
-    desc: '根据实践 ID 获取每日打卡列表',
-});
-api[0].list.push({
-    order: '2',
-    desc: '获取具体某一天的打卡记录',
-});
-api[0].list.push({
-    order: '3',
-    desc: '添加新的一天打卡',
-});
-api.push({
     alias: 'PracticeController',
-    order: '2',
+    order: '1',
     link: '实践相关接口',
     desc: '实践相关接口',
     list: []
 })
-api[1].list.push({
+api[0].list.push({
     order: '1',
     desc: '添加用户实践信息',
 });
 api.push({
     alias: 'RouteController',
-    order: '3',
+    order: '2',
     link: '路线（攻略）相关接口',
     desc: '路线（攻略）相关接口',
     list: []
 })
-api[2].list.push({
+api[1].list.push({
     order: '1',
     desc: '根据分类查询路线结果按热度降序排序',
 });
-api[2].list.push({
+api[1].list.push({
     order: '2',
     desc: '获取路线详情',
 });
-api[2].list.push({
+api[1].list.push({
     order: '3',
     desc: '将该路线加入到用户计划',
 });
-api[2].list.push({
+api[1].list.push({
     order: '4',
     desc: '将该路线加入到用户收藏',
 });
-api[2].list.push({
+api[1].list.push({
     order: '5',
     desc: '添加路线仅供内部人员使用',
+});
+api.push({
+    alias: 'ClockinController',
+    order: '3',
+    link: '每日打卡相关接口',
+    desc: '每日打卡相关接口',
+    list: []
+})
+api[2].list.push({
+    order: '1',
+    desc: '根据实践 ID 获取每日打卡列表',
+});
+api[2].list.push({
+    order: '2',
+    desc: '获取具体某一天的打卡记录',
+});
+api[2].list.push({
+    order: '3',
+    desc: '添加新的一天打卡',
 });
 api.push({
     alias: 'TestController',
