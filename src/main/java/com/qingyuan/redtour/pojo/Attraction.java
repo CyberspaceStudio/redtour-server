@@ -2,13 +2,16 @@ package com.qingyuan.redtour.pojo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 路线景点实体类
  * @Author: qyl
  * @Date: 2021/5/12 20:17
  */
 @Data
-public class Attraction {
+public class Attraction implements Serializable {
+    private static final long serialVersionUID = 3569812631401627197L;
     /**
      * 景点 ID
      */

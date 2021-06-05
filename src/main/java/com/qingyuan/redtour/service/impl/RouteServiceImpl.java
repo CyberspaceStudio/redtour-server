@@ -10,10 +10,15 @@ import com.qingyuan.redtour.utils.ResponseEnum;
 import com.qingyuan.redtour.utils.ResponseResult;
 import com.qingyuan.redtour.utils.component.RouteRankUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.Cursor;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author lmx
@@ -24,6 +29,8 @@ import java.util.List;
 @Slf4j
 public class RouteServiceImpl implements RouteService {
 
+    @Resource
+    private RedisTemplate redisTemplate;
     @Resource
     private RouteMapper routeMapper;
 
@@ -39,14 +46,24 @@ public class RouteServiceImpl implements RouteService {
 
     @Override
     public ResponseResult<RouteBO> getRouteById(Integer routeId) {
-        Route route = routeMapper.getRouteById(routeId);
-        List<Attraction> attractionList = routeMapper.getAttractionListByRouteId(routeId);
+        Object o = redisTemplate.opsForValue().get(String.valueOf(routeId));
+        RouteBO routeBO = new RouteBO();
+        Route route = new Route();
+        if (o == null ) {
+            route = routeMapper.getRouteById(routeId);
+            List<Attraction> attractionList = routeMapper.getAttractionListByRouteId(routeId);
+            // 封装 route 和 attraction
+            routeBO = wrapRouteBO(route);
+            routeBO.setAttractionList(attractionList);
+        } else {
+            routeBO = (RouteBO) o;
+            System.out.println(o);
+            System.out.println(routeBO.getAttractionList());
+        }
+
         // 点击一次，增加一次热度
         routeRankUtil.addHeatRoute(routeId, route.getCategory());
 
-        // 封装 route 和 attraction
-        RouteBO routeBO = wrapRouteBO(route);
-        routeBO.setAttractionList(attractionList);
         return ResponseResult.ok(routeBO);
     }
 
@@ -81,6 +98,9 @@ public class RouteServiceImpl implements RouteService {
         for (Attraction attraction : attractionList) {
             routeMapper.insertAttraction(attraction);
         }
+
+        redisTemplate.opsForValue().set(String.valueOf(route.getRouteId()),routeBO);
+
         return ResponseResult.ok();
     }
 
